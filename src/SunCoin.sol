@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import "./ERC20ABC.sol";
-import "./interfaces/ISolaxy.sol";
+import "./interfaces/ISunCoin.sol";
 import {UD60x18, ud60x18} from "@prb/math@4.0.2/src/UD60x18.sol";
 import {IERC721} from "@openzeppelin/contracts@5.0.2/interfaces/IERC721.sol";
 import {ISunCoin} from "./interfaces/ISunCoin.sol";
