@@ -4,3 +4,7 @@ out = "out"
 libs = ["lib"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+remappings = [
+    "@prb/math@4.0.3/=lib/prb-math/",
+    "@openzeppelin/contracts@5.0.2/=lib/openzeppelin-contracts/contracts/"
+]

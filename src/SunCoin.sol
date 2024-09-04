@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 import "./ERC20ABC.sol";
 import "./interfaces/ISunCoin.sol";
-import {UD60x18, ud60x18} from "@prb/math@4.0.2/src/UD60x18.sol";
+import {UD60x18, ud60x18} from "prb/math@4.0.3/src/UD60x18.sol";
 import {IERC721} from "@openzeppelin/contracts@5.0.2/interfaces/IERC721.sol";
 import {ISunCoin} from "./interfaces/ISunCoin.sol";
 
@@ -14,11 +14,13 @@ import {ISunCoin} from "./interfaces/ISunCoin.sol";
  */
 contract SunCoin is ERC20ABC, ISunCoin {
 
+    ERC20 public constant USDT = ERC20(0x05D032ac25d322df992303dCa074EE7392C117b9);
+
     /**
-     * @dev Constructs the Solaxy contract, checks the sDAI token address and the fee account address.
+     * @dev Constructs the SunCoin contract, checks the sDAI token address and the fee account address.
      */
     constructor() ERC20("SunCoin", "SNC") ERC20Permit("SunCoin") {
-
+        if (address(USDT) == address(0)) revert CannotBeZero();
     }
 
     /**
@@ -215,8 +217,9 @@ contract SunCoin is ERC20ABC, ISunCoin {
      * @return shares The calculated number of shares minted for the deposited assets.
      */
     function computeDeposit(uint256 assets, uint256 totalSupply) public pure returns (uint256 shares) {
-        UD60x18 initialSupply = ud60x18(totalSupply);
-        shares = initialSupply.powu(2).add(ud60x18(assets).div(HALF_SLOPE)).sqrt().sub(initialSupply).intoUint256();
+        UD60x18 initialTotal = ud60x18(totalSupply);
+        UD60x18 total = initialTotal.add(ud60x18(assets))
+        shares = initialSupply.add(ud60x18(assets).div(HALF_SLOPE)).sqrt().sub(initialSupply).intoUint256();
     }
 
     /**
