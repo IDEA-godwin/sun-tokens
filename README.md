@@ -54,6 +54,8 @@ Yields generated from the real-world assets are used to reduce the total amount 
 - `deposit(uint356 amount)`: Mints new tokens based on the current asset-to-token ratio.
 - `burn(address owner, uint256 amount)`: Uses yield to buy back and destroy tokens.
 
+## Slides
+[Slides link](https://www.canva.com/design/DAGPx60EbrM/P-AWattVgwEPpz6FBUDaxQ/view?utm_content=DAGPx60EbrM&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 ## Contact
 godsdelightjude@gmail.com
