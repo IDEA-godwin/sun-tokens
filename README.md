@@ -32,7 +32,7 @@ Yields generated from the real-world assets are used to reduce the total amount 
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/asset-backed-token.git
+   git clone https://github.com/IDEA-godwin/sun-tokens.git
    cd asset-backed-token
    ```
 
